@@ -1,0 +1,4 @@
+redact
+======
+
+Javascript redaction module
