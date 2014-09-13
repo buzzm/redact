@@ -109,7 +109,6 @@ var Redact = (function() {
 			break;
 
 		    default:
-			print("  walk with parent redact func");
 			walkList(ncp, ov_a, ridx);
 			break;
 		    }
@@ -150,7 +149,6 @@ var Redact = (function() {
 			break;
 
 		    default:
-			print("  walk with parent redact func");
 			walkMap(ncp, ov_a, ridx);
 			break;
 		    }

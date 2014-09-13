@@ -3,23 +3,16 @@ load("/Users/buzz/js/lib/redact.js");
 d1 = new Date(2011,2,2);
 d2 = new Date(2013,3,3);
 
-mkm2 = function() {
-    var m1 = {
-	"nestedDoc": {
-	    "foo": [ 1, 2, 3, 4, 5, 6 ]
-	}
-    };
-    return m1;
-}
-
 mkm = function() {
     var m1 = {
 	"name": "Buzz",
 	"date1": d1,
 	"hat": 12,
+	"hatch": "portside",
 	"nestedArray" : [ "hat", [ "b", "c", d2 ], [ 3.4 ]],
 	"nestedDoc": {
 	    "hat": "fedora",
+	    "chat": "room",
 	    "cat": "not a dog",
 	    "mat": {
 		"exp": "not an animal!",
@@ -44,11 +37,15 @@ tx = function(desc, expr) {
 
 tx("raw struct", null);
 
-tx("top level hat", [{"hat":"slx"}]);
+tx("all hat", [{"hat":"slx"}]);
+tx("top hat only", [{"^hat":"slx"}]);
+tx("top hat full only", [{"^hat$":"slx"}]);
+tx("nested hat full only", [{"\\.hat$":"slx"}]);
 
-tx("nested doc", [{"^nestedDoc":"slx"}] );
+tx("nested doc slx", [{"^nestedDoc":"slx"}] );
+tx("nested doc sub", [{"^nestedDoc":"sub"}] );
+tx("nested array", [{"^nestedArray":"sub"}] );
 
-tx("nested doc", [{"^nestedDoc":"sub"}] );
 
 
 var ll = [
