@@ -44,9 +44,11 @@
  * 
  *  More on regexp and non-scalars (containers):
  *  If a regexp matches a object or array name, then the model associated with
- *  it will be applied recursive to the entire contents of the container.  The
- *  model will be applied even if other regexp/model pairs exist that more 
- *  narrowly match the contents.
+ *  it will be applied recursively to the entire contents of the container.  
+ *  The model will be applied even if other regexp/model pairs exist later in the
+ *  argument list that more narrowly match the contents.  Care must be taken
+ *  to ensure that later pairs do not operate incorrectly on previously 
+ *  redacted material.
  *
  *  -Buzz, August 2014
  */
