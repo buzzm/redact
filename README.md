@@ -6,20 +6,24 @@ Javascript redaction module
 redact walks javascript objects and substitutes or removes values.
 Redaction is done in-place but the ref to the input is
 returned as a convenience.
-*  The redaction specification ("spec") is an array of field-model pairs (an
-array of single name:value maps)
+
+The redaction specification ("spec") is an array of field-model pairs (an
+array of single name:value maps).
 There are two functions for different styles of field:  simple and regexp:
-1.  "simple" assumes dot-notation listing of fields
-2.  "regexp" allows more sophisticated regular expressions to be used, but 
+ * "simple" assumes dot-notation listing of fields
+ * "regexp" allows more sophisticated regular expressions to be used, but 
     requires the caller to take care in escaping dots.
+
 The following models are available for both styles:
-1.  slx:  Substitute strings for same-length Xs (e.g. "buzz" -> "XXXX"),
+ *  slx:  Substitute strings for same-length Xs (e.g. "buzz" -> "XXXX"),
           numbers with 999, and dates with 2001-01-01
-2.  del:  Removes the entry entirely
-3.  sub:  Substitute strings ONLY with a unique value for this field
+ *  del:  Removes the entry entirely
+ *  sub:  Substitute strings ONLY with a unique value for this field
+
 The array of fields is evaluated in order; thus, be mindful of broader
 regex matching patterns appearing near the front of the list.  
-*  Both styles are accessible from static methods ("one-shot") and 
+
+Both styles are accessible from static methods ("one-shot") and 
 a stateful object with context.
 
 The examples below will use this javascript object as input:
